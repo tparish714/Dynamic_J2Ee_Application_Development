@@ -1,0 +1,161 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>TJ POP - It's Showtime!</title>
+
+        <style>
+
+            .Bimage{
+                background-image:url("resources/images/man.jpg");
+                height: 100%;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+            .menu{
+                width: 180px;
+                background-color: #d1c2c2;
+                font-size: 15px;
+                color: #c41f14;
+                display: inline-block;
+                margin-top: 80px;
+                margin-left: 80px;
+                z-index: 1;
+            }
+
+            /** SLIDESHOW **/
+            .slideshow {
+                list-style-type: none;
+            }
+
+            .slideshow,
+            .slideshow:after { 
+                top: -16px;
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                left: 0px;
+                z-index: 0; 
+            }
+
+            .slideshow li span { 
+                position: absolute;
+                width: 50%;
+                height: 50%;
+                top: 220px;
+                left: 210px;
+                padding:0px 160px;
+                color: transparent;
+                background-size: cover;
+                background-position: 50% 50%;
+                background-repeat: no-repeat;
+                opacity: 0;
+                z-index: 0;
+                animation: imageAnimation 18s linear infinite 0s; 
+            }
+
+            .slideshow li:nth-child(1) span { 
+                background-image: url("resources/images/slides/minions.jpeg"); 
+            }
+            .slideshow li:nth-child(2) span { 
+                background-image: url("resources/images/slides/thor.png"); 
+                animation-delay: 3s; 
+            }
+            .slideshow li:nth-child(3) span { 
+                background-image: url("resources/images/slides/theBlackPhone.png"); 
+                animation-delay: 6s; 
+            }
+            .slideshow li:nth-child(4) span { 
+                background-image: url("resources/images/slides/topGun.png"); 
+                animation-delay: 9s; 
+            }
+            .slideshow li:nth-child(5) span { 
+                background-image: url("resources/images/slides/theGrayMan.jpeg"); 
+                animation-delay: 12s; 
+            }
+
+            .slideshow li:nth-child(6) span { 
+                background-image: url("resources/images/slides/elvis.jpeg"); 
+                animation-delay: 15s; 
+            }
+
+            @keyframes imageAnimation { 
+                0% { opacity: 0; animation-timing-function: ease-in; }
+                8% { opacity: 1; animation-timing-function: ease-out; }
+                17% { opacity: 1 }
+                25% { opacity: 0 }
+                100% { opacity: 0 }
+            }
+
+            @keyframes titleAnimation { 
+                0% { opacity: 0 }
+                8% { opacity: 1 }
+                17% { opacity: 1 }
+                19% { opacity: 0 }
+                100% { opacity: 0 }
+            }
+
+            .no-cssanimations .cb-slideshow li span {
+                opacity: 1;
+            }
+
+            footer{   
+                text-align: center;
+                font-size:12px;
+                background-color: black;
+                color: rgba(255, 255, 255,0.5);
+                margin-top:420px;
+                margin-bottom:-30px;
+                font-family: Verdana;
+                line-height: 2px;
+            }
+        </style>
+    </h:head>
+
+    <h:body styleClass="Bimage">
+        <h:form>
+            <h:panelGrid columns="4">
+                <h:graphicImage library="images" 
+                                name="logo.png"
+                                height="180"
+                                style="padding-left: 30px"/>
+
+                <p:commandButton value="Home" styleClass="menu" 
+                                 action="Home.xhtml?faces-redirect=true"/>
+
+                <p:commandButton value="Get Tickets" styleClass="menu" 
+                                 action="GetTickets.xhtml?faces-redirect=true"/>
+
+                <p:commandButton value="Find a Theather" styleClass="menu" 
+                                 action="Locations.xhtml?faces-redirect=true"/>
+            </h:panelGrid>
+
+        </h:form>
+
+
+        <h:form>
+
+            <h:panelGroup>
+                <div class="slideshow">
+                    <li><span></span></li>
+                    <li><span></span></li>
+                    <li><span></span></li>
+                    <li><span></span></li>
+                    <li><span></span></li>
+                    <li><span></span></li>
+                </div>
+            </h:panelGroup>
+
+        </h:form>
+    </h:body>
+
+    <footer>
+        <p>Designed by Tera Parish &#38; Jenain Khan</p>
+        <p> &copy;Copyright TJ Pop Cinemas 2022</p>
+        <p>All rights reserved.</p>
+    </footer>
+</html>
+
